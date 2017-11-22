@@ -4,18 +4,16 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var helpers = require('./helpers');
 var CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
 var ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var config = {
   target: 'web',
   entry: {
-    app: './src/presentation/app.ts',
-    libs: './src/presentation/libs.ts'
+    app: './src/app.ts',
+    libs: './src/libs.ts'
   },
 
   resolve: {
     modules: [
-      helpers.root('src', 'core'),
       helpers.root('src'),
       helpers.root('node_modules')
     ],
@@ -27,7 +25,7 @@ var config = {
     rules: [
       {
         test: /\.ts$/,
-        include: [helpers.root('src', 'presentation')],
+        include: [helpers.root('src')],
         use: [
           'awesome-typescript-loader',
           'angular2-template-loader'
@@ -35,29 +33,9 @@ var config = {
       },
       {
         test: /\.less$/,
-        include: [helpers.root('src', 'presentation', 'application')],
+        include: [helpers.root('src', 'application')],
         use: [{
           loader: 'raw-loader'
-        }, {
-          loader: 'less-loader'
-        }]
-      },
-      {
-        test: /\.ts$/,
-        include: [helpers.root('src', 'core'), helpers.root('src', 'logic')],
-        loader: ['awesome-typescript-loader']
-      },
-      {
-        test: /\.js$/,
-        loader: ['ng-annotate-loader']
-      },
-      {
-        test: /\.less$/,
-        exclude: [helpers.root('src', 'presentation', 'application')],
-        use: [{
-          loader: 'style-loader'
-        },{
-          loader: 'css-loader'
         }, {
           loader: 'less-loader'
         }]
@@ -81,19 +59,9 @@ var config = {
 
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'src/presentation/index.html',
-      favicon: 'src/presentation/favicon.ico',
+      template: 'src/index.html',
+      favicon: 'src/favicon.ico',
       chunks: ['libs', 'app']
-    }),
-
-    new CopyWebpackPlugin([
-      {
-        from: 'node_modules/polystar-web-library/login/**',
-        to: './',
-        flatten: true
-      }
-    ], {
-      debug: 'warning'
     }),
 
     // Inside angular4, some third party libraries  are loaded runtime, this will

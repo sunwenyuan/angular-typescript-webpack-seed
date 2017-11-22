@@ -1,7 +1,7 @@
 {
-  "name": "jp",
-  "version": "1.7.1",
-  "private": true,
+  "name": "angular-typescript-webpack-seed",
+  "version": "0.0.1",
+  "private": false,
   "scripts": {
     "start": "webpack-dev-server --inline --progress --port 8100",
     "build": "webpack --progress --profile --bail --config config/webpack.build.js",

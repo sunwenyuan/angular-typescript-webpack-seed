@@ -4,8 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './application/app.component';
-import { IndexComponent } from './application/index/index.component';
-import { TableComponent } from './application/table/table.component';
+import { TestComponent } from './application/test/test.component';
+
 
 const appRoutes: Routes = [
     {
@@ -14,10 +14,7 @@ const appRoutes: Routes = [
         pathMatch: 'full'
     }, {
         path: 'index',
-        component: IndexComponent
-    }, {
-        path: 'table/:id',
-        component: TableComponent
+        component: TestComponent
     }
 ];
 
@@ -34,8 +31,7 @@ const appRoutes: Routes = [
     ],
     declarations: [
         AppComponent,
-        IndexComponent,
-        TableComponent
+        TestComponent
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     bootstrap: [AppComponent]
