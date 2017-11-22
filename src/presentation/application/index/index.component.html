@@ -1,0 +1,10 @@
+<ul>
+    <li *ngFor="let category of tree">
+        <span>{{category.category}}</span>
+        <ul>
+            <li *ngFor="let item of category.files" class="clickable" (click)="itemClicked(category.category, item)">
+                <span>{{item}}</span>
+            </li>
+        </ul>
+    </li>
+</ul>

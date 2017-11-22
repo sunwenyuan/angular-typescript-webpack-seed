@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "noImplicitAny": false,
+    "listFiles": true,
+    "baseUrl": "src",
+    "lib": [
+      "es2017",
+      "dom",              
+      "dom.iterable"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "paths": {
+      "logic/*": [
+        "logic/*"
+      ],
+      "presentation/*": [
+        "presentation/*"
+      ],
+      "core/*": [
+        "core/*",
+        "./core/*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "awesomeTypescriptLoaderOptions": {
+    "transpileOnly": true
+  }
+}
